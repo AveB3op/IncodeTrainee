@@ -22,9 +22,12 @@ class UserInfo extends Component {
         <Link to={'/user/edit/'+this.props.match.params.id}>
           <Button color="yellow">Edit user</Button>
         </Link>
+        <Link to='/'>
+          <Button color="green">Back</Button>
+        </Link>
       <Button color="red" onClick = {this.deleteUser}> Delete user</Button>
       </Segment>
-      
+
       </React.Fragment>
     );
   }

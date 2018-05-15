@@ -40,7 +40,7 @@ class EditPanel extends Component {
 
     return (
       <Segment>
-        <EditUserForm onEditUser = {this.editUser}/>
+        <EditUserForm onEditUser = {this.editUser} default = {this.props.displayUser(this.props.match.params.id)}/>
       </Segment>
     );
   }

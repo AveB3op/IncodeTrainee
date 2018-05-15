@@ -4,7 +4,6 @@ import User from './User.jsx';
 import { Segment, Button, List  } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
-import Store from '../hoc/State';
 class SearchPane extends Component {
   constructor(){
     super();

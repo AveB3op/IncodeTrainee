@@ -18,7 +18,7 @@ function withSubscription(WrappedComponent, selectData) {
       Store.addUser(userData);
       console.log(Store.getData());
     }
-    displayUser(id){
+    getUser(id){
       return Store.getUser(id);
     }
     deleteUser(id){
@@ -31,7 +31,7 @@ function withSubscription(WrappedComponent, selectData) {
     render() {
       // ... and renders the wrapped component with the fresh data!
       // Notice that we pass through any additional props
-      return <WrappedComponent data={this.state.data} {...this.props} onAddUser = {this.addUser} displayUser = {this.displayUser} deleteUser = {this.deleteUser} editUser= {this.editUser}/>;
+      return <WrappedComponent data={this.state.data} {...this.props} onAddUser = {this.addUser} displayUser = {this.getUser} deleteUser = {this.deleteUser} editUser= {this.editUser}/>;
     }
   };
 }

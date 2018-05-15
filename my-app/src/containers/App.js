@@ -10,7 +10,6 @@ import withSubscription from '../hoc/WithSubscription.jsx';
 class App extends Component {
 
   render() {
-    // console.log(data);
     return (
       <Container text className="App">
 
