@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { List,Image,Button,Segment } from 'semantic-ui-react';
+import { Button,Segment } from 'semantic-ui-react';
 import InfoPanel from '../components/InfoPanel';
 import {Link} from 'react-router-dom';
 class UserInfo extends Component {

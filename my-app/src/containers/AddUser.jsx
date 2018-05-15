@@ -1,6 +1,4 @@
 import React,{ Component } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
-// import { List,Image } from 'semantic-ui-react';
 import AddUserForm from '../components/AddUserForm.jsx';
 
 class AddUser extends Component {
@@ -18,7 +16,7 @@ class AddUser extends Component {
     this.props.onAddUser(userData);
     this.props.history.push('/');
   }
-  
+
   formObject(form){
     return{
       "general": {

@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
-import { List,Image,Button,Segment } from 'semantic-ui-react';
+import {Segment } from 'semantic-ui-react';
 import EditUserForm from '../components/EditUserForm.jsx';
-import {Link} from 'react-router-dom';
+
 
 class EditPanel extends Component {
   constructor(props){
