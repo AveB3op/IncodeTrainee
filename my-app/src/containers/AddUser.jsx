@@ -1,24 +1,25 @@
-import React,{ Component } from 'react';
+import React, {Component} from 'react';
 import AddUserForm from '../components/AddUserForm.jsx';
 
 class AddUser extends Component {
-  constructor(){
+  constructor() {
     super();
-    if(!this.state){
-    this.state = {data:{}}
+    if (!this.state) {
+      this.state = {
+        data: {}
+      }
     }
     this.addUser = this.addUser.bind(this);
   }
 
-  addUser(e){
+  addUser(e) {
     let userData = this.formObject(e.target);
-    // this.setState({...this.state, data:[...this.state.data,userData]});
     this.props.onAddUser(userData);
     this.props.history.push('/');
   }
 
-  formObject(form){
-    return{
+  formObject(form) {
+    return {
       "general": {
         "firstName": form[0].value,
         "lastName": form[1].value,
@@ -33,7 +34,7 @@ class AddUser extends Component {
         "phone": form[6].value
       },
       "address": {
-        "street":form[7].value,
+        "street": form[7].value,
         "city": form[8].value,
         "zipCode": form[9].value,
         "country": form[10].value
@@ -42,9 +43,7 @@ class AddUser extends Component {
   }
   render() {
     console.log(this.props);
-    return (
-        <AddUserForm onAddUser = {this.addUser} />
-      );
+    return (<AddUserForm onAddUser={this.addUser}/>);
   }
 }
 
