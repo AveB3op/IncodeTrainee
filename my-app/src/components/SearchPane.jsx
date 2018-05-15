@@ -3,30 +3,36 @@ import Search from './Search.jsx';
 import User from './User.jsx';
 import { Segment, Button, List  } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
-
+import _ from 'lodash';
+import Store from '../hoc/State';
 class SearchPane extends Component {
   constructor(){
     super();
     this.state = {userList:[]};
     this.onSearch = this.onSearch.bind(this);
+
   }
   componentDidMount(){
-    this.setState({...this.state,userList:this.props.userList});
+    this.setState({...this.state,userList:this.props.data});
+    this.onSearch= _.debounce(this.onSearch,500);
   }
   onSearch(input) {
+
+
   if (input !== '') {
     this.setState({
       ...this.state,
-      userList: this.props.userList.filter((el) => {
+      userList: this.props.data.filter((el) => {
         return (el.general.firstName + el.general.lastName).toLowerCase().includes(input.toLowerCase());
       })
     });
   } else {
     this.setState({
       ...this.state,
-      userList: this.props.userList
+      userList: this.props.data
     });
   }
+
 }
   render() {
     return (

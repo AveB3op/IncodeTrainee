@@ -1,44 +1,16 @@
 import React, {Component} from 'react';
 import {Button, Checkbox, Form} from 'semantic-ui-react';
-import {Redirect,Link} from 'react-router-dom';
+import {Redirect,Link,Router} from 'react-router-dom';
+
 // import { List,Image } from 'semantic-ui-react';
 
 class AddUser extends Component {
-
-  formObject(data){
-
-    return{
-      "general": {
-        "firstName": data[0].value,
-        "lastName": data[1].value,
-        "avatar": data[2].value
-      },
-      "job": {
-        "company": data[3].value,
-        "title": data[4].value
-      },
-      "contact": {
-        "email": data[5].value,
-        "phone": data[6].value
-      },
-      "address": {
-        "street":data[7].value,
-        "city": data[8].value,
-        "zipCode": data[9].value,
-        "country": data[10].value
-      }
-    }
-  }
 
   render() {
 
 
     return (
-      <div>
-      <Form onSubmit={(e)=>{
-        e.preventDefault();
-        this.props.onAddUser(this.formObject(e.target));
-        }}>
+      <Form onSubmit={this.props.onAddUser}>
 
         <Form.Field>
           <label>First Name
@@ -92,7 +64,7 @@ class AddUser extends Component {
           </Link>
         </Form.Field>
       </Form>
-    </div>);
+    );
   }
 }
 
