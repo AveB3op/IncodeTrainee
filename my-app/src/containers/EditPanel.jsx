@@ -1,24 +1,18 @@
 import React,{ Component } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
-// import { List,Image } from 'semantic-ui-react';
-import AddUserForm from '../components/AddUserForm.jsx';
+import { List,Image,Button,Segment } from 'semantic-ui-react';
+import EditUserForm from '../components/EditUserForm.jsx';
+import {Link} from 'react-router-dom';
 
-class AddUser extends Component {
-  constructor(){
-    super();
-    if(!this.state){
-    this.state = {data:{}}
-    }
-    this.addUser = this.addUser.bind(this);
+class EditPanel extends Component {
+  constructor(props){
+    super(props);
+    this.editUser = this.editUser.bind(this);
   }
 
-  addUser(e){
-    let userData = this.formObject(e.target);
-    // this.setState({...this.state, data:[...this.state.data,userData]});
-    this.props.onAddUser(userData);
+  editUser(e){
+    this.props.editUser(this.props.match.params.id, this.formObject(e.target));
     this.props.history.push('/');
   }
-  
   formObject(form){
     return{
       "general": {
@@ -43,11 +37,13 @@ class AddUser extends Component {
     }
   }
   render() {
-    console.log(this.props);
+
     return (
-        <AddUserForm onAddUser = {this.addUser} />
-      );
+      <Segment>
+        <EditUserForm onEditUser = {this.editUser}/>
+      </Segment>
+    );
   }
 }
 
-export default AddUser;
+export default EditPanel;

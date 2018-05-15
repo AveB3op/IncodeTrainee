@@ -39,8 +39,8 @@ class SearchPane extends Component {
       <Segment className="search-panel" inverted floated = 'left'>
         <Search onSearch ={this.onSearch}/>
         <List bulleted>
-          {this.state.userList.map((el,i)=>{
-            return <User key ={el.address.zipCode} id ={i} user={el.general} select = {this.props.select}/>
+          {this.state.userList.map((el)=>{
+            return <User key ={el.address.zipCode} id ={el.address.zipCode} user={el.general} select = {this.props.select}/>
           })}
         </List>
         <Link to='/user/new'>
