@@ -5,29 +5,28 @@ function withSubscription(WrappedComponent, selectData) {
   return class extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
+         this.state = {
         data: Store.getData()
       };
 
-      // this.addUser = this.addUser.bind(this);
     }
-    addUser(userData) {
-      Store.addUser(userData);
-    }
-    getUser(id) {
-      return Store.getUser(id);
-    }
-    deleteUser(id) {
-      Store.deleteUser(id);
-    }
-    editUser(id, newData) {
-      Store.editUser(id, newData);
-    }
+addUser(userData) {
+  Store.addUser(userData);
+}
+getUser(id) {
+  return Store.getUser(id);
+}
+deleteUser(id) {
+  Store.deleteUser(id);
+}
+editUser(id, newData) {
+  Store.editUser(id, newData);
+}
 
     render() {
       // ... and renders the wrapped component with the fresh data!
       // Notice that we pass through any additional props
-      return <WrappedComponent data={this.state.data} {...this.props} onAddUser={this.addUser} displayUser={this.getUser} deleteUser={this.deleteUser} editUser={this.editUser}/>;
+      return <WrappedComponent data={this.state.data} {...this.props} onAddUser = {this.addUser} displayUser = {this.getUser} deleteUser = {this.deleteUser} editUser= {this.editUser}/>;
     }
   };
 }
